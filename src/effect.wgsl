@@ -85,7 +85,7 @@ fn main(input : FragmentInput) -> FragmentOutput
 	let passes: u32 = u32(clamp(shaderParams.width / shaderParams.precisionStep, 1.0, f32(SAMPLES)));
 	let sampleCount: u32 = u32(clamp(shaderParams.samples, 0.0, f32(SAMPLES)));
 
-	for (var j: u32 = 0u; j < passes; j = j + 1u) {
+	for (var j: u32 = 0u; j <= passes; j = j + 1u) {
 			widthCopy = mix(0.0, shaderParams.width, f32(j) / f32(passes));
 			actualWidth = widthCopy * texelSize;
 			angle = 0.0;

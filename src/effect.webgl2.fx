@@ -55,7 +55,7 @@ void main(void)
 	mediump float sampledAlpha;
 	int passes = int(clamp(width / precisionStep, 1.0, float(PASSES)));
 	int sampleCount = int(clamp(samples, 0.0, float(SAMPLES)));
-	for (int j = 0; j < passes; j++) {
+	for (int j = 0; j <= passes; j++) {
 		widthCopy = mix(0.0, width, float(j)/float(passes));
 		actualWidth = widthCopy * texelSize;
 		angle = 0.0;
