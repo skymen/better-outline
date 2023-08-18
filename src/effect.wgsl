@@ -65,9 +65,9 @@ fn c3_HSLtoRGB(hsl : vec3<f32>) -> vec3<f32>
 
 // define SAMPLES, PASSES and PI
 
-let PI:f32 = 3.14159265359;
-let SAMPLES:i32 = 96;
-let PASSES:i32 = 64;
+const PI:f32 = 3.14159265359;
+const SAMPLES:i32 = 96;
+const PASSES:i32 = 64;
 
 @fragment
 fn main(input : FragmentInput) -> FragmentOutput
@@ -98,7 +98,7 @@ fn main(input : FragmentInput) -> FragmentOutput
 	}
 	fragColor = mix( vec4(0.0), color, outlineAlpha );
 	//TEXTURE
-	mediump vec4 tex0 = textureSample(textureFront, samplerFront, input.fragUV );
+	var tex0 : vec4<f32> = textureSample(textureFront, samplerFront, input.fragUV );
 	var output : FragmentOutput;
 	output.color = mix(fragColor, tex0, tex0.a);
 	return output;
