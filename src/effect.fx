@@ -41,8 +41,8 @@ void main(void)
 	mediump float widthCopy = width;
 	mediump vec4 color = vec4(outlinecolor.x, outlinecolor.y, outlinecolor.z, 1.0);
 	mediump float angle;
-    mediump vec2 layoutSize = abs(vec2(layoutEnd.x-layoutStart.x,(layoutEnd.y-layoutStart.y))); 
-    mediump vec2 texelSize = abs(srcOriginEnd-srcOriginStart)/layoutSize;
+	mediump vec2 layoutSize = abs(vec2(layoutEnd.x-layoutStart.x,(layoutEnd.y-layoutStart.y)));
+	mediump vec2 texelSize = abs(srcOriginEnd-srcOriginStart)/layoutSize;
 	mediump vec4 fragColor;
 	mediump vec2 testPoint;
 	mediump float sampledAlpha;

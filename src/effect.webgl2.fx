@@ -48,8 +48,8 @@ void main(void)
 	mediump float widthCopy = width;
 	mediump vec4 color = vec4(outlinecolor.x, outlinecolor.y, outlinecolor.z, 1.0);
 	mediump float angle;
-    mediump vec2 layoutSize = abs(vec2(layoutEnd.x-layoutStart.x,(layoutEnd.y-layoutStart.y))); 
-    mediump vec2 texelSize = abs(srcOriginEnd-srcOriginStart)/layoutSize;
+	mediump vec2 layoutSize = abs(vec2(layoutEnd.x-layoutStart.x,(layoutEnd.y-layoutStart.y))); 
+	mediump vec2 texelSize = abs(srcOriginEnd-srcOriginStart)/layoutSize;
 	mediump vec4 fragColor;
 	mediump vec2 testPoint;
 	mediump float sampledAlpha;
@@ -60,14 +60,14 @@ void main(void)
 		actualWidth = widthCopy * texelSize;
 		angle = 0.0;
 		for( int i = 0; i < sampleCount; i++ ) {
-			angle += 1.0/(sampleCount/2.0) * PI;
+			angle += 1.0/(float(sampleCount)/2.0) * PI;
 			testPoint = vTex + actualWidth * vec2(cos(angle), sin(angle));
-			sampledAlpha = texture2D( samplerFront,  testPoint ).a;
+			sampledAlpha = texture( samplerFront,  testPoint ).a;
 			outlineAlpha = max( outlineAlpha, sampledAlpha );
 		}
 	}
 	fragColor = mix( vec4(0.0), color, outlineAlpha );
 	//TEXTURE
-	mediump vec4 tex0 = texture2D( samplerFront, vTex );
+	mediump vec4 tex0 = texture( samplerFront, vTex );
 	outColor = mix(fragColor, tex0, tex0.a);
 }
