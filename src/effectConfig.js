@@ -3,7 +3,7 @@ module.exports = {
   addonType: "effect",
   id: "skymen_BetterOutline",
   name: "Better Outline",
-  version: "2.0.0.3",
+  version: "2.0.0.4",
   category:
     // "blend",
     // "distortion",
@@ -83,6 +83,16 @@ module.exports = {
       interpolatable: true,
       name: "Samples",
       desc: "The number of angles the outline will render at",
+    },
+    {
+      type: "percent",
+      id: "opacity",
+      value: 1,
+      uniform: "outlineOpacity",
+      // precision: "lowp" // defaults to lowp if omitted
+      interpolatable: true,
+      name: "Opacity",
+      desc: "The opacity of the outline",
     },
   ],
 };

@@ -66,7 +66,7 @@ void main(void)
 			outlineAlpha = max( outlineAlpha, sampledAlpha );
 		}
 	}
-	fragColor = mix( vec4(0.0), color, outlineAlpha );
+	fragColor = mix( vec4(0.0), color, outlineAlpha * outlineOpacity );
 	//TEXTURE
 	mediump vec4 tex0 = texture( samplerFront, vTex );
 	outColor = mix(fragColor, tex0, tex0.a);
