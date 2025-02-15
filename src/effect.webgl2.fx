@@ -43,6 +43,10 @@ uniform mediump float zFar;
 
 void main(void)
 {
+	if (width <= 0.0 || outlineOpacity <= 0.0) {
+		outColor = texture( samplerFront, vTex );
+		return;
+	}
 	mediump float outlineAlpha = 0.0;
 	mediump vec2 actualWidth;
 	mediump float widthCopy = width;

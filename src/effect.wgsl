@@ -72,6 +72,11 @@ const PASSES:i32 = 64;
 @fragment
 fn main(input : FragmentInput) -> FragmentOutput
 {
+	var output : FragmentOutput;
+	if (shaderParams.width <= 0.0 || shaderParams.outlineOpacity <= 0.0) {
+		output.color = textureSample(textureFront, samplerFront, input.fragUV );
+		return output;
+	}
 	var outlineAlpha: f32 = 0.0;
 	var actualWidth: vec2<f32>;
 	var widthCopy: f32 = shaderParams.width;
@@ -99,7 +104,6 @@ fn main(input : FragmentInput) -> FragmentOutput
 	fragColor = mix( vec4(0.0), color, outlineAlpha * shaderParams.outlineOpacity );
 	//TEXTURE
 	var tex0 : vec4<f32> = textureSample(textureFront, samplerFront, input.fragUV );
-	var output : FragmentOutput;
 	output.color = mix(fragColor, tex0, tex0.a);
 	return output;
 }

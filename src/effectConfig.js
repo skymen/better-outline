@@ -3,7 +3,7 @@ module.exports = {
   addonType: "effect",
   id: "skymen_BetterOutline",
   name: "Better Outline",
-  version: "2.0.0.4",
+  version: "2.0.0.5",
   category:
     // "blend",
     // "distortion",

@@ -36,6 +36,10 @@ uniform mediump float layerAngle;
 
 void main(void)
 {
+	if (width <= 0.0 || outlineOpacity <= 0.0) {
+		gl_FragColor = texture2D( samplerFront, vTex );
+		return;
+	}
 	mediump float outlineAlpha = 0.0;
 	mediump vec2 actualWidth;
 	mediump float widthCopy = width;
