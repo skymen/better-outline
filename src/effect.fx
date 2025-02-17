@@ -67,5 +67,5 @@ void main(void)
 	fragColor = color * outlineAlpha * outlineOpacity;
 	//TEXTURE
 	mediump vec4 tex0 = texture2D( samplerFront, vTex );
-	gl_FragColor = fragColor * (1. - front.a) + front;
+	gl_FragColor = fragColor * (1. - tex0.a) + tex0;
 }

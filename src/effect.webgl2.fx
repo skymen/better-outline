@@ -73,5 +73,5 @@ void main(void)
 	fragColor = color * outlineAlpha * outlineOpacity;
 	//TEXTURE
 	mediump vec4 tex0 = texture( samplerFront, vTex );
-	outColor = fragColor * (1. - front.a) + front;
+	outColor = fragColor * (1. - tex0.a) + tex0;
 }
