@@ -101,9 +101,9 @@ fn main(input : FragmentInput) -> FragmentOutput
 					outlineAlpha = max(outlineAlpha, sampledAlpha);
 			}
 	}
-	fragColor = mix( vec4(0.0), color, outlineAlpha * shaderParams.outlineOpacity );
+	fragColor = color * outlineAlpha * shaderParams.outlineOpacity;
 	//TEXTURE
 	var tex0 : vec4<f32> = textureSample(textureFront, samplerFront, input.fragUV );
-	output.color = mix(fragColor, tex0, tex0.a);
+	output.color = fragColor * (1. - tex0.a) + tex0;
 	return output;
 }
